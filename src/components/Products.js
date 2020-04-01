@@ -61,10 +61,18 @@ class Products extends React.Component {
                         <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" className="d-inline-block align-top" alt="" />
                     </a>
                     <Search search={this.handleSearch} />
+                    {(this.state.total === 0) ?
+                        <button type="button" className="btn btn-info" data-toggle="modal" data-target="#exampleModalLong" disabled>
+                            Checkout
+                        </button>
+                        :
+                        <button type="button" className="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">
+                            Checkout <span className="badge badge-light">{this.state.addedProducts.length}</span>
+                        </button>
+                    }
                 </nav>
                 <div className="row mt-3">
-                    <div className="col-sm-7">
-                        <h2>Lists of all products</h2>
+                    <div className="col-sm-12">
                         <div className="row">
                         {this.props.products
                         .filter((data) => {
@@ -83,18 +91,26 @@ class Products extends React.Component {
                         ))}
                         </div>
                     </div>
-                    <div className="col-sm-5">
-                        <h2>Selecting Products</h2>
-                        <Checkout 
-                            itemsProducts={this.state.addedProducts}
-                            deletedProd={this.handleDeleteProduct}
-                            />
-                        <table class="table mt-3">
-                            <tr>
-                                <td>Total</td>
-                                <td class="text-danger">{this.state.total} $</td>
-                            </tr>
-                        </table>
+                </div>
+                <div className="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLongTitle">Panier</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <Checkout 
+                                    itemsProducts={this.state.addedProducts}
+                                    deletedProd={this.handleDeleteProduct}
+                                    />
+                            </div>
+                            <div className="modal-footer">
+                                <p>Total : <span className="text-danger">{this.state.total} $</span></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
