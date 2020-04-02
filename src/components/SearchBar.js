@@ -1,12 +1,12 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-    
+
     constructor(props) {
         super(props);
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     }
-    
+
     /**
      * Handle Filter Text Change.
      * 
@@ -15,6 +15,7 @@ class SearchBar extends React.Component {
     handleFilterTextChange(e) {
         this.props.onFilterTextChange(e.target.value);
     }
+    
     render() {
         return (
             <div className="container">

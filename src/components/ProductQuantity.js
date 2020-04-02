@@ -7,8 +7,7 @@ class ProductQuantity extends React.Component {
             <form className="form-inline">
                 <div className="form-group">
                     <button className="btn btn-danger"> - </button>
-                    <input value="0"
-                        className="form-control" disabled />
+                    <input value="0" className="form-control" disabled />
                     <button className="btn btn-primary"> + </button>
                 </div>
             </form>

@@ -1,7 +1,28 @@
 import React from 'react';
-import ProductQuantity from './ProductQuantity';
 
 class ProductRow extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            qty: 0
+        }
+    }
+
+    AddToCard() {
+        this.setState((prevState) => ({
+            qty: prevState.qty + 1
+        }));
+        this.props.handleBuyingTotal(this.props.price);
+    }
+
+    RemoveFromCard() {
+        this.setState((prevState) => ({
+            qty: (prevState.qty > 0) ? prevState.qty - 1 : 0
+        }));
+        this.props.handleRemovingTotal(this.props.price);
+    }
+
     render() {
         return (
             <div className="col-4">
@@ -12,7 +33,13 @@ class ProductRow extends React.Component {
                         <span className="badge badge-secondary"> {this.props.product.ref}</span>
                         <p className="card-text">{this.props.product.description}</p>
                         <span className="badge badge-light"> {this.props.product.price} $</span>
-                        <ProductQuantity />
+                        <div className="form-inline">
+                            <div className="form-group">
+                                <button className="btn btn-danger" onClick={this.RemoveFromCard.bind(this)} > - </button>
+                                <input value={this.state.qty} className="form-control" disabled />
+                                <button className="btn btn-primary" onClick={this.AddToCard.bind(this)}> + </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
