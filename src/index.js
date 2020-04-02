@@ -6,7 +6,7 @@ import AppContainer from './components/AppContainer';
 import * as serviceWorker from './serviceWorker';
 
 const PRODUCTS = [
-  { ref: '4141589679', price: 49.99, image: 'https://dummyimage.com/300x200/808080/000000', name: 'Football', description: 'Football product description' },
+  { ref: '4141589679', price: 49.99, image: 'https://dummyimage.com/300x200/808080/000000', name: 'Football', description: 'Le football futbol (dans la langue orale, par apocope, le foot), ou soccer en anglais  en Amérique du Nord),' },
   { ref: '5766031063', price: 9.99, image: 'https://dummyimage.com/300x200/808080/000000', name: 'Baseball', description: 'Baseball product description' },
   { ref: '0137738001', price: 29.99, image: 'https://dummyimage.com/300x200/808080/000000', name: 'Basketball', description: 'Basketball product description' },
   { ref: '0593792626', price: 99.99, image: 'https://dummyimage.com/300x200/808080/000000', name: 'iPod Touch', description: 'iPod Touch product description' },
