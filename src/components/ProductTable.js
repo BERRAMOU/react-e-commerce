@@ -9,7 +9,6 @@ class ProductTable extends React.Component {
         this.state = {
             total: 0
         }
-
         this.calculateAddTotal = this.calculateAddTotal.bind(this);
         this.calculateRemoveTotal = this.calculateRemoveTotal.bind(this);
     }

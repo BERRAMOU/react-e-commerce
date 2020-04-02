@@ -18,8 +18,12 @@ class ProductRow extends React.Component {
 
     RemoveFromCard() {
         this.setState((prevState) => ({
-            qty: (prevState.qty > 0) ? prevState.qty - 1 : 0
+            qty: (prevState.qty > 1) ? prevState.qty - 1 : 0
         }));
+        // If the quantity reach to 0 do not call Total handler.
+        if (this.state.qty === 0) {
+            return;
+        }
         this.props.handleRemovingTotal(this.props.price);
     }
 
