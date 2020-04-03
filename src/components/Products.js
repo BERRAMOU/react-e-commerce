@@ -44,14 +44,22 @@ class Products extends React.Component {
     handleDeleteProduct = (e, ref) => {
         e.preventDefault()
         let prodToRemove= this.state.addedProducts.find(data=> data.ref === ref)
-        let new_products = this.state.addedProducts.filter(data=> data.ref !== ref)
-
-        let newTotal = this.state.total - (prodToRemove.price * prodToRemove.quantity)
-
-        return this.setState({ 
-            addedProducts: new_products,
-            total: newTotal 
-        })
+        
+        if (prodToRemove) {
+            if (prodToRemove.quantity > 1) {
+                prodToRemove.quantity -= 1
+                return this.setState({ 
+                    total: this.state.total - prodToRemove.price 
+                })
+            } else {
+                let new_products = this.state.addedProducts.filter(data=> data.ref !== ref)
+                let newTotal = this.state.total - (prodToRemove.price * prodToRemove.quantity)
+                return this.setState({ 
+                    addedProducts: new_products,
+                    total: newTotal 
+                })
+            }
+        }
     }
 
     render() {
