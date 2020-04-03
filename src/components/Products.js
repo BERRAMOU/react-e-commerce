@@ -15,6 +15,7 @@ class Products extends React.Component {
 
         this.handleSearch = this.handleSearch.bind(this);
         this.handleAddProduct = this.handleAddProduct.bind(this);
+        this.handleDeleteProduct = this.handleDeleteProduct.bind(this);
     };
 
     handleSearch = (e) => {
