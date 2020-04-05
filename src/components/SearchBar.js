@@ -15,25 +15,23 @@ class SearchBar extends React.Component {
     handleFilterTextChange(e) {
         this.props.onFilterTextChange(e.target.value);
     }
-    
+
     render() {
         return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="form-group col-md-4 col-md-offset-5 align-center ">
-                        <form>
-                            <div className="form-group">
-                                <input
-                                    className="form-control"
-                                    placeholder="Search ..."
-                                    value={this.props.filterText}
-                                    onChange={this.handleFilterTextChange}
-                                />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <nav className="navbar navbar-light bg-light justify-content-between">
+                <a className="navbar-brand" href="/">
+                    <img src={process.env.PUBLIC_URL + '/logo192.png'} width="30" height="30" className="d-inline-block align-top" alt="" />
+                </a>
+                <form className="form-inline">
+                    <input
+                        className="form-control mr-sm-2"
+                        placeholder="Search ..."
+                        value={this.props.filterText}
+                        onChange={this.handleFilterTextChange}
+                    />
+                </form>
+            </nav>
+
         );
     }
 }
